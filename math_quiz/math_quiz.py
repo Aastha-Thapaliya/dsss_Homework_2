@@ -1,18 +1,19 @@
 import random
 
 
-def generate_random_number(min, max):
+def generate_random_number(minimum, maximum):
     """
     Generate a random number between two numbers.
 
     Args:
-        min(int or float): the minimum value for the random number
-        max(int or float): the maximum value for the random number
+        minimum(int or float): the minimum value for the random number
+        maximum(int or float): the maximum value for the random number
 
     Returns:
         int or float: a random number between min and max.
     """
-    return round(random.uniform(min, max),1) # Generates random numbers allowing for both integer and float values upto 1 decimal places
+    return round(random.uniform(minimum, maximum), 1)  # Generates random numbers allowing for both integer and float
+    # values upto 1 decimal places
 
 
 def generate_random_operation():
@@ -35,14 +36,18 @@ def perform_operation(number1, number2, operator):
         operator (str): The operator representing the operation. Supported values are '+', '-', '*'.
 
         Returns:
-        tuple: A tuple containing the string representation of the operation (e.g., 'number1 + number2') and the result of the operation.
-
+        tuple: A tuple containing the string representation of the operation (e.g., 'number1 + number2')
+        and the result of the operation.
         """
     operation_done = f"{number1} {operator} {number2}"
-    if operator == '+': result = number1 + number2
-    elif operator == '-': result = number1 - number2
-    else: result = number1 * number2
+    if operator == '+':
+        result = number1 + number2
+    elif operator == '-':
+        result = number1 - number2
+    else:
+        result = number1 * number2
     return operation_done, result
+
 
 def math_quiz():
     """
@@ -56,8 +61,8 @@ def math_quiz():
     The quiz contains addition, subtraction, and multiplication problems generated randomly.
 
     """
-    score = 0 # Initial score
-    total_questions = 3 # The number of total questions should be an integer
+    score = 0  # Initial score
+    total_questions = 3  # The number of total questions should be an integer
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
@@ -71,17 +76,16 @@ def math_quiz():
             problem, actual_answer = perform_operation(first_number, second_number, operation)
             print(f"\nWhat is : {problem}")
             user_answer = input("Your answer: ")
-            user_answer = float(user_answer) # converting user input to float
+            user_answer = float(user_answer)  # converting user input to float
 
-            if user_answer == round(actual_answer,1):
+            if user_answer == round(actual_answer, 1):
                 print("Correct! You earned a point.")
                 score += -(-1)
             else:
-                print(f"Wrong answer. The correct answer is {round(actual_answer,1)}.")
+                print(f"Wrong answer. The correct answer is {round(actual_answer, 1)}.")
 
         except (ValueError, TypeError) as e:
             print(f"An error occurred: {e}. Please provide your answer as an integer or a float number.")
-
 
     print(f"\nGame over! Your score is: {score}/{total_questions}")
 
