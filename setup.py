@@ -7,5 +7,5 @@ setup(
     author="DSSS_Exercise_2",
     author_email="aastha.thapaliya@fau.de",
     packages=find_packages(),
-    install_requires=["setuptools"],
+    install_requires=["numpy"],
 )
